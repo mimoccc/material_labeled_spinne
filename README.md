@@ -1,8 +1,45 @@
 Depends on AppCompat Library, will publish my own appCompatLibrary soon.
 
-Simply:
+Usage:
+
+'''xml
+                     <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:theme="@style/TextLabel"
+                        app:hintAnimationEnabled="true">
+
+                        <android.support.v7.widget.AppCompatLabeledSpinner
+                            android:id="@+id/company"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/hint_company"
+                            android:paddingLeft="32dp"
+                            android:textColor="@color/white" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+Code:
 
 ```javascript
+package android.support.v7.widget;
+
+import android.content.Context;
+import android.database.DataSetObserver;
+import android.graphics.Rect;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.text.method.KeyListener;
+import android.util.AttributeSet;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.Filterable;
+import android.widget.ListAdapter;
+
 public class AppCompatLabeledSpinner extends AppCompatAutoCompleteTextView implements AdapterView.OnItemSelectedListener {
     protected AdapterView.OnItemSelectedListener listener;
     private Object selected_item;
@@ -61,6 +98,8 @@ public class AppCompatLabeledSpinner extends AppCompatAutoCompleteTextView imple
             @Override
             public boolean onTouch(View view, MotionEvent e) {
                 if (e.getAction() == MotionEvent.ACTION_DOWN) {
+                    hideKeyboard(AppCompatLabeledSpinner.this);
+
                     if (isPopupShowing()) {
                         AppCompatLabeledSpinner.this.dismissDropDown();
                     } else {
@@ -93,6 +132,20 @@ public class AppCompatLabeledSpinner extends AppCompatAutoCompleteTextView imple
         if (focused) {
             hideKeyboard(AppCompatLabeledSpinner.this);
         }
+    }
+
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+
+        hideKeyboard(AppCompatLabeledSpinner.this);
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+
+        hideKeyboard(AppCompatLabeledSpinner.this);
     }
 
     @Override
@@ -211,5 +264,6 @@ public class AppCompatLabeledSpinner extends AppCompatAutoCompleteTextView imple
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }
+
 
 
