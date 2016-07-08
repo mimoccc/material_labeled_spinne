@@ -1,7 +1,8 @@
-Depends on AppCompat Library, will publish my own appCompatLibrary soon
+Depends on AppCompat Library, will publish my own appCompatLibrary soon.
 
-Simly:
+Simply:
 
+```javascript
 public class SpinnerWithLabel extends AppCompatAutoCompleteTextView implements AdapterView.OnItemSelectedListener {
     protected AdapterView.OnItemSelectedListener listener;
     private Object selected_item;
