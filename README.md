@@ -1,24 +1,5 @@
 Depends on AppCompat Library, will publish my own appCompatLibrary soon.
 
-Usage:
-
-```HTML
-                     <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:theme="@style/TextLabel"
-                        app:hintAnimationEnabled="true">
-
-                        <android.support.v7.widget.AppCompatLabeledSpinner
-                            android:id="@+id/company"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/hint_company"
-                            android:paddingLeft="32dp"
-                            android:textColor="@color/white" />
-
-                    </android.support.design.widget.TextInputLayout>
 
 Code:
 
@@ -266,4 +247,23 @@ public class AppCompatLabeledSpinner extends AppCompatAutoCompleteTextView imple
 }
 
 
+Usage:
+
+```HTML
+                     <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:theme="@style/TextLabel"
+                        app:hintAnimationEnabled="true">
+
+                        <android.support.v7.widget.AppCompatLabeledSpinner
+                            android:id="@+id/company"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/hint_company"
+                            android:paddingLeft="32dp"
+                            android:textColor="@color/white" />
+
+                    </android.support.design.widget.TextInputLayout>
 
