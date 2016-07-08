@@ -29,6 +29,8 @@ public class SpinnerWithLabel extends AppCompatAutoCompleteTextView implements A
         setKeyListener(null);
 
         SpinnerWithLabel.this.dismissDropDown();
+        
+        setOnItemSelectedListener(this);
 
         setOnTouchListener(new OnTouchListener() {
             @Override
