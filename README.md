@@ -2,7 +2,7 @@ Depends on AppCompat Library, will publish my own appCompatLibrary soon.
 
 Usage:
 
-'''xml
+```HTML
                      <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
